@@ -1,7 +1,7 @@
 version: '3'
 services:
   rsyslog:
-    image: fabianonunes/rsyslog:0.0.1-alpha.0
+    image: fabianonunes/rsyslog:0.0.1
     network_mode: host
     build:
       context: .

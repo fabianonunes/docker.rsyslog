@@ -6,5 +6,6 @@ RUN set -ex;                   \
 
 COPY rsyslog.conf /etc
 
+USER 1000
 ENTRYPOINT [ "rsyslogd" ]
 CMD [ "-n", "-f", "/etc/rsyslog.conf" ]

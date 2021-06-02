@@ -1,11 +1,12 @@
 FROM alpine:3.13.5
 
 RUN set -ex;                   \
-    apk upgrade --no-cache;    \
-    apk add --no-cache rsyslog
+    apk add --no-cache         \
+      logrotate                \
+      rsyslog                  \
+      tini;
 
 COPY rsyslog.conf /etc
+COPY entrypoint /
 
-USER 1000
-ENTRYPOINT [ "rsyslogd" ]
-CMD [ "-n", "-f", "/etc/rsyslog.conf" ]
+ENTRYPOINT [ "/entrypoint" ]

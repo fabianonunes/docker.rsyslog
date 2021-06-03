@@ -9,4 +9,4 @@ RUN set -ex;                   \
 COPY rsyslog.conf /etc
 COPY entrypoint /
 
-ENTRYPOINT [ "/entrypoint" ]
+ENTRYPOINT [ "/sbin/tini", "--", "/entrypoint" ]
